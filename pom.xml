@@ -9,11 +9,11 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.jslhrd</groupId>
-	<artifactId>exPds</artifactId>
+	<artifactId>MyMartShop</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<name>exPds</name>
-	<description>자료실(파일업로드)</description>
+	<name>MyMartShop</name>
+	<description>쇼핑몰 프로젝트</description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
