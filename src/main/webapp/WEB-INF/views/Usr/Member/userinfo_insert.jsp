@@ -1,16 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="">
-<head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Page Title</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' href='register.css'>
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css'>
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-</head>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<c:set var="pageTitle" value="회원 가입" />
+<link rel='stylesheet' href='register.css'>
+<%@ include file="../../common/head.jsp" %>
 <body>
 <!--header section starts-->
 <header class="header">
@@ -65,5 +59,4 @@
 <!--header section ends-->
 <!--custom js file lick-->
 <script src='script.js'></script>
-</body>
-</html>
+<%@ include file="../../common/foot.jsp" %>
