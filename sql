@@ -3,8 +3,7 @@
 
 DROP TRIGGER TRI_article_a_id;
 DROP TRIGGER TRI_Goods_g_Id;
-DROP TRIGGER TRI_Goods_Id;
-DROP TRIGGER TRI_Order_o_id;
+DROP TRIGGER TRI_Indent_i_id;
 DROP TRIGGER TRI_Supply_s_id;
 
 
@@ -14,7 +13,7 @@ DROP TRIGGER TRI_Supply_s_id;
 DROP TABLE Article CASCADE CONSTRAINTS;
 DROP TABLE Supply CASCADE CONSTRAINTS;
 DROP TABLE Company CASCADE CONSTRAINTS;
-DROP TABLE Order CASCADE CONSTRAINTS;
+DROP TABLE Indent CASCADE CONSTRAINTS;
 DROP TABLE Goods CASCADE CONSTRAINTS;
 DROP TABLE Member CASCADE CONSTRAINTS;
 
@@ -24,8 +23,7 @@ DROP TABLE Member CASCADE CONSTRAINTS;
 
 DROP SEQUENCE SEQ_article_a_id;
 DROP SEQUENCE SEQ_Goods_g_Id;
-DROP SEQUENCE SEQ_Goods_Id;
-DROP SEQUENCE SEQ_Order_o_id;
+DROP SEQUENCE SEQ_Indent_i_id;
 DROP SEQUENCE SEQ_Supply_s_id;
 
 
@@ -35,8 +33,7 @@ DROP SEQUENCE SEQ_Supply_s_id;
 
 CREATE SEQUENCE SEQ_article_a_id INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_Goods_g_Id INCREMENT BY 1 START WITH 1;
-CREATE SEQUENCE SEQ_Goods_Id INCREMENT BY 1 START WITH 1;
-CREATE SEQUENCE SEQ_Order_o_id INCREMENT BY 1 START WITH 1;
+CREATE SEQUENCE SEQ_Indent_i_id INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_Supply_s_id INCREMENT BY 1 START WITH 1;
 
 
@@ -102,6 +99,27 @@ CREATE TABLE Goods
 );
 
 
+-- 주문
+CREATE TABLE Indent
+(
+	-- 주문 번호
+	i_id number NOT NULL,
+	-- 주문 수량
+	i_amount number NOT NULL,
+	-- 배송지
+	address varchar2(100) NOT NULL,
+	-- 주문 일자
+	indentDate date DEFAULT sysdate NOT NULL,
+	-- 총 금액
+	totalPrice number NOT NULL,
+	-- 상품 번호
+	g_id number NOT NULL,
+	-- 구매자
+	memberId varchar2(20) NOT NULL,
+	PRIMARY KEY (i_id)
+);
+
+
 -- 회원
 CREATE TABLE Member
 (
@@ -126,27 +144,6 @@ CREATE TABLE Member
 	-- 권한 : 1 = 일반유저, 3 = 관리자
 	authLevel number DEFAULT 1 NOT NULL,
 	PRIMARY KEY (memberId)
-);
-
-
--- 주문
-CREATE TABLE Order
-(
-	-- 주문 번호
-	o_id number NOT NULL,
-	-- 주문 수량
-	o_amount number NOT NULL,
-	-- 배송지
-	address varchar2(100) NOT NULL,
-	-- 주문 일자
-	orderDate date DEFAULT sysdate NOT NULL,
-	-- 총 금액
-	totalPrice number NOT NULL,
-	-- 상품 번호
-	g_id number NOT NULL,
-	-- 구매자
-	memberId varchar2(20) NOT NULL,
-	PRIMARY KEY (o_id)
 );
 
 
@@ -176,7 +173,7 @@ ALTER TABLE Supply
 ;
 
 
-ALTER TABLE Order
+ALTER TABLE Indent
 	ADD FOREIGN KEY (g_id)
 	REFERENCES Goods (g_Id)
 ;
@@ -194,7 +191,7 @@ ALTER TABLE Article
 ;
 
 
-ALTER TABLE Order
+ALTER TABLE Indent
 	ADD FOREIGN KEY (memberId)
 	REFERENCES Member (memberId)
 ;
@@ -223,21 +220,11 @@ END;
 
 /
 
-CREATE OR REPLACE TRIGGER TRI_Goods_Id BEFORE INSERT ON Goods
+CREATE OR REPLACE TRIGGER TRI_Indent_i_id BEFORE INSERT ON Indent
 FOR EACH ROW
 BEGIN
-	SELECT SEQ_Goods_Id.nextval
-	INTO :new.Id
-	FROM dual;
-END;
-
-/
-
-CREATE OR REPLACE TRIGGER TRI_Order_o_id BEFORE INSERT ON Order
-FOR EACH ROW
-BEGIN
-	SELECT SEQ_Order_o_id.nextval
-	INTO :new.o_id
+	SELECT SEQ_Indent_i_id.nextval
+	INTO :new.i_id
 	FROM dual;
 END;
 
@@ -280,6 +267,14 @@ COMMENT ON COLUMN Goods.g_name IS '상품명';
 COMMENT ON COLUMN Goods.g_fileName IS '이미지';
 COMMENT ON COLUMN Goods.g_amount IS '재고량';
 COMMENT ON COLUMN Goods.price IS '단가';
+COMMENT ON TABLE Indent IS '주문';
+COMMENT ON COLUMN Indent.i_id IS '주문 번호';
+COMMENT ON COLUMN Indent.i_amount IS '주문 수량';
+COMMENT ON COLUMN Indent.address IS '배송지';
+COMMENT ON COLUMN Indent.indentDate IS '주문 일자';
+COMMENT ON COLUMN Indent.totalPrice IS '총 금액';
+COMMENT ON COLUMN Indent.g_id IS '상품 번호';
+COMMENT ON COLUMN Indent.memberId IS '구매자';
 COMMENT ON TABLE Member IS '회원';
 COMMENT ON COLUMN Member.memberId IS '회원 아이디';
 COMMENT ON COLUMN Member.pass IS '비밀번호';
@@ -291,14 +286,6 @@ COMMENT ON COLUMN Member.grade IS '회원 등급 : 총 구입금액 0~ 500,000�
 COMMENT ON COLUMN Member.totalSpent IS '총 구입금액';
 COMMENT ON COLUMN Member.point IS '적립금';
 COMMENT ON COLUMN Member.authLevel IS '권한 : 1 = 일반유저, 3 = 관리자';
-COMMENT ON TABLE Order IS '주문';
-COMMENT ON COLUMN Order.o_id IS '주문 번호';
-COMMENT ON COLUMN Order.o_amount IS '주문 수량';
-COMMENT ON COLUMN Order.address IS '배송지';
-COMMENT ON COLUMN Order.orderDate IS '주문 일자';
-COMMENT ON COLUMN Order.totalPrice IS '총 금액';
-COMMENT ON COLUMN Order.g_id IS '상품 번호';
-COMMENT ON COLUMN Order.memberId IS '구매자';
 COMMENT ON TABLE Supply IS '공급정보';
 COMMENT ON COLUMN Supply.s_id IS '공급 번호';
 COMMENT ON COLUMN Supply.supplyDate IS '공급 일자';
