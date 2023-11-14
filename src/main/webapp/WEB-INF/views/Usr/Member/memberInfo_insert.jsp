@@ -6,9 +6,6 @@
 <link rel='stylesheet' href='register.css'>
 <%@ include file="../../common/head.jsp" %>
 <body>
-<!--header section starts-->
-<header class="header">
-    <a href="/" class="logo">logo</a>
 <script>
 	$(function(){
 		//아이디 중복
@@ -98,7 +95,4 @@
     </form>
 </div>
 </div>
-<!--header section ends-->
-<!--custom js file lick-->
-<script src='script.js'></script>
 <%@ include file="../../common/foot.jsp" %>

@@ -6,11 +6,6 @@
 <link rel='stylesheet' href='login.css'>
 <%@ include file="../../common/head.jsp" %>
 <body>
-<!--header section starts-->
-<header class="header">
-    <a href="/" class="logo">logo</a>
-</header>
-
 <div class="wrapper">
     <div class="form-box login">
         <h1>Login</h1>
@@ -39,7 +34,4 @@
     </form>
 </div>
 </div>
-<!--header section ends-->
-<!--custom js file lick-->
-<script src='script.js'></script>
 <%@ include file="../../common/foot.jsp" %>
