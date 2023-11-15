@@ -44,8 +44,6 @@
 		});
 	});
 </script>
-</header>
-
 <div class="wrapper">
     <div class="form-box register">
         <h1>Registration</h1>
@@ -90,7 +88,6 @@
             <p>Already have an account?
                 <a href="/Usr/Member/memberLogin">Login</a>
             </p>
-
         </div>
     </form>
 </div>

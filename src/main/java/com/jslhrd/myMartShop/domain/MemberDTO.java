@@ -12,7 +12,7 @@ public class MemberDTO {
 	private String job;
 	private String grade;
 	private int totalspent;
-	private int poin;
+	private int point;
 	private int authlevel;
 	private String regdate;
 	private String lastlogin;

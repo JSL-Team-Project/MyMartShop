@@ -1,5 +1,7 @@
 package com.jslhrd.myMartShop.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -48,5 +50,10 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public void memberLoginUpdate(MemberDTO dto) {
 		mapper.memberLoginUpdate(dto);
+	}
+	
+	@Override
+	public List<MemberDTO> memberList() {
+		return mapper.memberList();
 	}
 }

@@ -1,5 +1,7 @@
 package com.jslhrd.myMartShop.mapper;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 
 import com.jslhrd.myMartShop.domain.MemberDTO;
@@ -16,4 +18,6 @@ public interface MemberMapper {
 	public MemberDTO memberLogin(MemberDTO dto);
 	//로그인-마지막 접속일자 업데이트
 	public void memberLoginUpdate(MemberDTO dto);
+	//전체 목록
+	public List<MemberDTO> memberList();
 }

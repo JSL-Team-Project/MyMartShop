@@ -1,5 +1,7 @@
 package com.jslhrd.myMartShop.service;
 
+import java.util.List;
+
 import com.jslhrd.myMartShop.domain.MemberDTO;
 
 public interface MemberService {
@@ -13,4 +15,6 @@ public interface MemberService {
 	public MemberDTO memberLogin(MemberDTO dto);
 	//로그인-마지막 접속일자 업데이트
 	public void memberLoginUpdate(MemberDTO dto);
+	//전체 목록
+	public List<MemberDTO> memberList();
 }

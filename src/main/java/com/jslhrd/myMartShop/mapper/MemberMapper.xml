@@ -22,4 +22,8 @@
 	<select id="memberLoginUpdate" resultType="com.jslhrd.myMartShop.domain.MemberDTO">
 		update Member set lastlogin=sysdate where memberid=#{memberid}	
 	</select>
+	<!-- 전체 목록 -->
+	<select id="memberList" resultType="com.jslhrd.myMartShop.domain.MemberDTO">
+		select * from Member order by regdate
+	</select>
 </mapper>
