@@ -9,30 +9,32 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel="stylesheet"
   href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-    <link rel='stylesheet'  href='sample.css'>
-    <script src='main.js'></script>
+    <link rel='stylesheet'  href='style.css'>
+    <script src='script.js'></script>
 </head>
 <body>
-    <header>
+    <header class="header">
         <a href="#" class="logo">
-            LOGO
+            <h1>logo</h1>
         </a>
-        <!--메뉴아이콘-->
-        <i class='bx bx-menu' id="menu-icon"></i>
         <!--링크-->
-        <ul class="navbar">
-            <li><a href="#">홈</a></li>
-            <li><a href="#">숍</a></li>
-            <li><a href="#">게시판</a></li>
-            
-        </ul>
+        <nav class="navbar">
+            <a href="#">Home</a>
+            <a href="#">Board</a>
+            <a href="#">Shop</a>
+        </nav>
         <!--아이콘-->
-        <div class="hearder-icon">
-            <a href="#"><i class='bx bx-user'></i></a>
-            <a href="/Usr/Company/companyLogin"><i class='bx bx-buildings'></i></a>
+        <div class="icon">
+            <i class='bx bx-user'></i>
+            <i class='bx bx-buildings'></i>
             <i class='bx bx-search' id="search"></i>
         </div>
+        <div class="search-form">
+            <input type="search" id="search-box" placeholder="search here...">
+            <label for="search-box" class="bx bx-search"></label>
+        </div>
     </header>
-    <script src='main.js'></script>
+    
 </body>
+<script src='script.js'></script>
 </html>
