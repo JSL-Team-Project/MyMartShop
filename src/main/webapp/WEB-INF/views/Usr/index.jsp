@@ -28,7 +28,8 @@
         </ul>
         <!--아이콘-->
         <div class="hearder-icon">
-            <i class='bx bx-user'></i>
+            <a href="#"><i class='bx bx-user'></i></a>
+            <a href="/Usr/Company/companyLogin"><i class='bx bx-buildings'></i></a>
             <i class='bx bx-search' id="search"></i>
         </div>
     </header>
