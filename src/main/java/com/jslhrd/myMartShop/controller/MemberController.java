@@ -60,6 +60,11 @@ public class MemberController {
 		}
 	}
 	
+	//로그아웃
+	@GetMapping("memberLogout")
+	public void MemberLogout(HttpSession session) {
+		session.invalidate();
+	}
 	
 	//회원가입 폼
 	@GetMapping("memberInfo_insert")
@@ -81,6 +86,5 @@ public class MemberController {
 		int row = service.memberInsert(dto);
 		return "redirect:";
 	}
-	
 
 }

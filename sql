@@ -1,13 +1,4 @@
 
-/* Drop Triggers */
-
-DROP TRIGGER TRI_article_a_id;
-DROP TRIGGER TRI_Goods_g_Id;
-DROP TRIGGER TRI_Indent_i_id;
-DROP TRIGGER TRI_Supply_s_id;
-
-
-
 /* Drop Tables */
 
 DROP TABLE Article CASCADE CONSTRAINTS;
@@ -17,24 +8,6 @@ DROP TABLE Indent CASCADE CONSTRAINTS;
 DROP TABLE Goods CASCADE CONSTRAINTS;
 DROP TABLE Member CASCADE CONSTRAINTS;
 
-
-
-/* Drop Sequences */
-
-DROP SEQUENCE SEQ_article_a_id;
-DROP SEQUENCE SEQ_Goods_g_Id;
-DROP SEQUENCE SEQ_Indent_i_id;
-DROP SEQUENCE SEQ_Supply_s_id;
-
-
-
-
-/* Create Sequences */
-
-CREATE SEQUENCE SEQ_article_a_id INCREMENT BY 1 START WITH 1;
-CREATE SEQUENCE SEQ_Goods_g_Id INCREMENT BY 1 START WITH 1;
-CREATE SEQUENCE SEQ_Indent_i_id INCREMENT BY 1 START WITH 1;
-CREATE SEQUENCE SEQ_Supply_s_id INCREMENT BY 1 START WITH 1;
 
 
 
@@ -73,11 +46,13 @@ CREATE TABLE Company
 	-- 법인번호
 	corNum varchar2(30) NOT NULL,
 	-- 연락처
-	c_tel number NOT NULL,
+	c_tel varchar2(11) NOT NULL,
 	-- 위치
 	location varchar2(100) NOT NULL,
 	-- 담당자
 	manager varchar2(20) NOT NULL,
+	-- 등록일자
+	regDate date DEFAULT sysdate NOT NULL,
 	PRIMARY KEY (c_name)
 );
 
@@ -95,6 +70,8 @@ CREATE TABLE Goods
 	g_amount number NOT NULL,
 	-- 단가
 	price number NOT NULL,
+	-- 등록일자
+	regDate date DEFAULT sysdate NOT NULL,
 	PRIMARY KEY (g_Id)
 );
 
@@ -126,11 +103,11 @@ CREATE TABLE Member
 	-- 회원 아이디
 	memberId varchar2(20) NOT NULL,
 	-- 비밀번호
-	pass varchar2(20) NOT NULL,
+	pass varchar2(100) NOT NULL,
 	-- 이름
 	m_name varchar2(20) NOT NULL,
 	-- 연락처
-	m_tel number NOT NULL,
+	m_tel varchar2(11) NOT NULL,
 	-- 나이
 	age number NOT NULL,
 	-- 직업
@@ -143,6 +120,10 @@ CREATE TABLE Member
 	point number DEFAULT 0 NOT NULL,
 	-- 권한 : 1 = 일반유저, 3 = 관리자
 	authLevel number DEFAULT 1 NOT NULL,
+	-- 가입일자
+	regDate date DEFAULT sysdate NOT NULL,
+	-- 마지막 접속일자
+	lastLogin date,
 	PRIMARY KEY (memberId)
 );
 
@@ -198,51 +179,6 @@ ALTER TABLE Indent
 
 
 
-/* Create Triggers */
-
-CREATE OR REPLACE TRIGGER TRI_article_a_id BEFORE INSERT ON article
-FOR EACH ROW
-BEGIN
-	SELECT SEQ_article_a_id.nextval
-	INTO :new.a_id
-	FROM dual;
-END;
-
-/
-
-CREATE OR REPLACE TRIGGER TRI_Goods_g_Id BEFORE INSERT ON Goods
-FOR EACH ROW
-BEGIN
-	SELECT SEQ_Goods_g_Id.nextval
-	INTO :new.g_Id
-	FROM dual;
-END;
-
-/
-
-CREATE OR REPLACE TRIGGER TRI_Indent_i_id BEFORE INSERT ON Indent
-FOR EACH ROW
-BEGIN
-	SELECT SEQ_Indent_i_id.nextval
-	INTO :new.i_id
-	FROM dual;
-END;
-
-/
-
-CREATE OR REPLACE TRIGGER TRI_Supply_s_id BEFORE INSERT ON Supply
-FOR EACH ROW
-BEGIN
-	SELECT SEQ_Supply_s_id.nextval
-	INTO :new.s_id
-	FROM dual;
-END;
-
-/
-
-
-
-
 /* Comments */
 
 COMMENT ON TABLE Article IS '게시글';
@@ -261,12 +197,14 @@ COMMENT ON COLUMN Company.corNum IS '법인번호';
 COMMENT ON COLUMN Company.c_tel IS '연락처';
 COMMENT ON COLUMN Company.location IS '위치';
 COMMENT ON COLUMN Company.manager IS '담당자';
+COMMENT ON COLUMN Company.regDate IS '등록일자';
 COMMENT ON TABLE Goods IS '상품';
 COMMENT ON COLUMN Goods.g_Id IS '상품 번호';
 COMMENT ON COLUMN Goods.g_name IS '상품명';
 COMMENT ON COLUMN Goods.g_fileName IS '이미지';
 COMMENT ON COLUMN Goods.g_amount IS '재고량';
 COMMENT ON COLUMN Goods.price IS '단가';
+COMMENT ON COLUMN Goods.regDate IS '등록일자';
 COMMENT ON TABLE Indent IS '주문';
 COMMENT ON COLUMN Indent.i_id IS '주문 번호';
 COMMENT ON COLUMN Indent.i_amount IS '주문 수량';
@@ -286,6 +224,8 @@ COMMENT ON COLUMN Member.grade IS '회원 등급 : 총 구입금액 0~ 500,000�
 COMMENT ON COLUMN Member.totalSpent IS '총 구입금액';
 COMMENT ON COLUMN Member.point IS '적립금';
 COMMENT ON COLUMN Member.authLevel IS '권한 : 1 = 일반유저, 3 = 관리자';
+COMMENT ON COLUMN Member.regDate IS '가입일자';
+COMMENT ON COLUMN Member.lastLogin IS '마지막 접속일자';
 COMMENT ON TABLE Supply IS '공급정보';
 COMMENT ON COLUMN Supply.s_id IS '공급 번호';
 COMMENT ON COLUMN Supply.supplyDate IS '공급 일자';
