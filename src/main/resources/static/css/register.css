@@ -27,27 +27,7 @@ body{
     align-items: center;
     min-height: 100vh;
 }
-.header{
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1.87rem 9%;
-    background: #fff;
-    box-shadow: var(--box-shadow);
-}
-.header .logo{
-    font-size: 1.6rem;
-    font-weight: bolder;
-    color: var(--black);
-}
-.header .logo i{
-    color: var(--bule);
-}
+
 .wrapper{
     position: relative;
     bottom: -140px;

@@ -1,20 +1,21 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="">
+<html>
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Page Title</title>
+	<meta charset="UTF-8">
+	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-    <link rel='stylesheet'  href='style.css'>
-    <link rel='stylesheet'  href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css'>
-    
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css'>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <link rel='stylesheet'  href='/css/menubar.css'>
+<title>${pageTitle }</title>
 </head>
 <body>
     <header class="header">
         <a href="#" class="logo">
-            <h2>Logo</h2>
+            <h2>logo</h2>
         </a>
         
         <!--링크-->
@@ -38,12 +39,14 @@
             <li><i class='bx bx-search' id="search"></i></li>
         </ul>
         </div>
-        <div class="search-form">
+        <form name="#" method="post" class="search-form">
+        <div>
             <input type="text" id="search-box" placeholder="search here...">
             <a href="#"><label for="search-box" class="bx bx-search"></label></a>
         </div>
+        </form>
     </header>
     
 </body>
-<script src='script.js'></script>
+<script src='/js/script.js'></script>
 </html>

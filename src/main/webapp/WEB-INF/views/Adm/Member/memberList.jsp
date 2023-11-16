@@ -30,12 +30,10 @@
 	                    <h1 class="id">ID:${member.memberid}</h1>
 	                </div>
 	            </div>
-	            <div class="first-login">
+	            <div class="login">
 	                <p>${member.regdate.substring(0,10)}</p>
-	            </div>
-	            <div class="last-login">
 	                <p>${member.lastlogin.substring(0,10)}</p>
-	            </div>
+	           </div>
 	            <div class="phone">
 	                <p>${member.m_tel}</p>
 	            </div>
