@@ -56,4 +56,9 @@ public class MemberServiceImpl implements MemberService {
 	public List<MemberDTO> memberList() {
 		return mapper.memberList();
 	}
+	
+	@Override
+	public int memberDelete(String memberid) {
+		return mapper.memberDelete(memberid);
+	}
 }

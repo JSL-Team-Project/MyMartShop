@@ -26,4 +26,8 @@
 	<select id="memberList" resultType="com.jslhrd.myMartShop.domain.MemberDTO">
 		select * from Member order by regdate
 	</select>
+	<!-- 회원삭제 -->
+	<delete id="memberDelete">
+		delete from Member where memberid = #{memberid} 
+	</delete>
 </mapper>

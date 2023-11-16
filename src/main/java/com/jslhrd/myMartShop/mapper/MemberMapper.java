@@ -18,6 +18,8 @@ public interface MemberMapper {
 	public MemberDTO memberLogin(MemberDTO dto);
 	//로그인-마지막 접속일자 업데이트
 	public void memberLoginUpdate(MemberDTO dto);
-	//전체 목록
+	//전체목록
 	public List<MemberDTO> memberList();
+	//회원삭제
+	public int memberDelete(String memberid);
 }

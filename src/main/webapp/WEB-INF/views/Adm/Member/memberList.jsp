@@ -9,6 +9,15 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' href='/css/list.css'>
     <script src='main.js'></script>
+<script>
+	function deleteCheck(memberid) {
+		if (confirm("삭제하시겠습니까?") == true){
+			location.replace("/Adm/Member/memberDelete?memberid="+memberid);
+		}else{
+			return false;
+		}
+	}
+</script>
 </head>
 <body>
     <main>
@@ -31,7 +40,7 @@
 	                <p>${member.m_tel}</p>
 	            </div>
 	            <div class="delete">
-	                <a href="#" class="btn">Delete</a>
+	                <a href="javascript:deleteCheck(${member.memberid})" class="btn">Delete</a>
 	            </div>
 	            <div class="action">
 	                <div class="icon">
