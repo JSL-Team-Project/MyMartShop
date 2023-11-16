@@ -5,9 +5,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script>
+	alert("로그아웃 되었습니다")
+	location.href="/";
+</script>
 </head>
 <body>
-	<h1>쇼핑몰 프로젝트</h1>
-	
+
 </body>
 </html>
