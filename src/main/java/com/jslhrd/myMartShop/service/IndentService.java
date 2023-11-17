@@ -1,5 +1,5 @@
 package com.jslhrd.myMartShop.service;
 
-public interface OrderService {
+public interface IndentService {
 
 }
