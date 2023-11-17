@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,14 +15,14 @@
 </head>
 <body>
     <header class="header">
-        <a href="#" class="logo">
+        <a href="/" class="logo">
             <h2>logo</h2>
         </a>
         
         <!--링크-->
         <nav class="navbar">
-            <a href="#">Home</a>
-            <a href="#">Board</a>
+            <a href="/">Home</a>
+            <a href="/Usr/Article/articleList">Board</a>
             <a href="#">Shop</a>
         </nav>
         <!--아이콘-->
@@ -31,8 +32,14 @@
             <li> <i class='bx bx-buildings'></i></li>
             <li><i class='bx bx-user'></i>
             <ul class="dropdown">
-                <li><a href="">Login</a></li>
-                <li><a href="">Register</a></li>
+                <c:if test="${member==null}">
+	                <li><a href="/Usr/Member/memberLogin">Login</a></li>
+	                <li><a href="/Usr/Member/memberInfo_insert">Register</a></li>
+                </c:if>
+                <c:if test="${member!=null}">
+                	<li><a href="">MyPage</a></li>
+                	<li><a href="/Usr/Member/memberLogout">Logout</a></li>
+                </c:if>	
             </ul>
         </li>
             

@@ -12,24 +12,21 @@
 				<div>
 					<span>글 개수 : ${articlesCnt }</span>
 					<div class="py-1">
-						<a href="list?type=notice">공지사항</a> <span>|||</span>
-						<a href="list?type=free">자유</a> <span>|||</span>
-						<a href="list?type=review">리뷰</a> <span>|||</span>
-						<a href="list?type=inquiry">문의</a>
+						<a href="/Usr/Article/articleList?type=notice">공지사항</a> <span>|||</span>
+						<a href="/Usr/Article/articleList?type=review">리뷰</a> <span>|||</span>
+						<a href="/Usr/Article/articleList?type=inquiry">문의</a>
 					</div>
 				</div>
 				<div>
 					<form>
-						<input type="hidden" name="type"
-							value="${type}" /> <select
-							data-value="${searchKeywordType }"
-							class="select select-accent select-sm w-28"
-							name="searchKeywordType">
+						<input type="hidden" name="type" value="${type}" /> 
+						<select data-value="${searchKeywordType }"
+							class="select select-accent select-sm w-28" name="searchKeywordType">
 							<option value="title">제목</option>
 							<option value="body">내용</option>
 							<option value="title,body">제목 + 내용</option>
-						</select> <input
-							class="ml-2 input input-bordered input-accent input-sm w-64"
+						</select> 
+						<input class="ml-2 input input-bordered input-accent input-sm w-64"
 							type="text" name="searchKeyword" placeholder="검색어를 입력해주세요"
 							maxlength="20" value="${searchKeyword }" />
 						<button class="ml-2 btn btn-accent btn-sm">검색</button>
@@ -51,8 +48,8 @@
 							<tr class="hover">
 								<td>${article.a_id }</td>
 								<td>${article.regDate.substring(2, 16) }</td>
-								<td><a class="hover:underline"
-									href="view?id=${article.a_id }">${article.title }</a></td>
+								<td><a class="hover:underline" href="view?id=${article.a_id }">
+									${article.title }</a></td>
 								<td>${article.writerName }</td>
 							</tr>
 						</c:forEach>

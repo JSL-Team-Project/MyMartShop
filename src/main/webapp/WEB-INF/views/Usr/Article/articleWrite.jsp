@@ -4,20 +4,18 @@
 
 <c:set var="pageTitle" value="게시글 작성" />
 <%@ include file="../../common/head.jsp" %>
-<body>
 
+<body>
 <section class="mt-24">
 		<div class="container mx-auto">
 			<form action="doWrite" method="POST" onsubmit="submitForm(this); return false;">
-				<input type="hidden" name="body" />
 				<div class="table-box-type-1">
 					<div class="w-full max-w-xs mb-2">
 						<span class="text-gray-700 font-bold text-sm ml-4 mr-2">게시판</span>
 						<select data-value="${type }" name="type" class="select select-accent select-bordered">
-						    <c:if test="${rq.loginedMember.authLevel == 3 }">
+						    <c:if test="${member.authLevel == 3 }">
 								<option value="notice">공지사항</option>
 							</c:if>
-						    <option value="free">자유</option>
 							<option value="review">리뷰</option>
 							<option value="inquiry">문의</option>
 						</select>
@@ -35,6 +33,12 @@
 								<th>내용</th>
 								<td>
 									<input class="input input-bordered input-accent w-full" type="text" name="body" placeholder="내용을 입력해주세요" />
+								</td>
+							</tr>
+							<tr>
+								<th>첨부파일</th>
+								<td>
+									<input type="file" name="a_filename" onChange="checkSize(this)">
 								</td>
 							</tr>
 							<tr>
