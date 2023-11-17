@@ -4,8 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
 <%@ include file="./common/menubar.jsp" %>
+<title>Insert title here</title>
+
 </head>
 <body>
 
