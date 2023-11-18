@@ -81,6 +81,13 @@ CREATE TABLE Company
 	PRIMARY KEY (c_name)
 );
 
+insert into Company values(ohsung, 1111, 02-111-1111, '서울', jdragon);
+insert into Company values(LZ, 1112, 051-111-1112, '부산', nine);
+insert into Company values(notte, 1113, 042-111-1113, '대전', god);
+insert into Company values(sky, 1114, 053-111-1114, '대구', chita);
+insert into Company values(twohwa, 1115, 063-111-1115, '전주', kimwin);
+insert into Company values(bosco, 1116, 032-111-1116, '인천', choi);
+
 
 -- 상품
 CREATE TABLE Goods
