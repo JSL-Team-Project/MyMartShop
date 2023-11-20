@@ -9,19 +9,19 @@
 <script>
 	$(function(){
 		//아이디 중복
-		$("input[name='memberid']").on("change",function(){
-			var memberid=$('#memberid').val();
+		$("input[name='memberId']").on("change",function(){
+			var memberId=$('#memberId').val();
 			$.ajax({
 				url:'member_idcheck',
 				type:'post',
-				data:{'memberid':memberid},
+				data:{'memberId':memberId},
 				success:function(result){
 					if(result==0){
 						memberID_c.innerHTML="사용가능한 아이디입니다";
 					}else if(result==1){
 						memberID_c.innerHTML="중복된 아이디입니다";
-			            $('#memberid').val('');
-			            $('#memberid').focus();
+			            $('#memberId').val('');
+			            $('#memberId').focus();
 					}else{
 						alert("Error");
 					}
@@ -50,7 +50,7 @@
         <form name="member" method="post" action="/Usr/Member/memberInfo_insert" >
         <div class="input-box">
                 <span class="icon"><i class='bx bxs-user' ></i></span>
-                <input name="memberid" id="memberid" type="text" placeholder="ID" required> 
+                <input name="memberId" id="memberId" type="text" placeholder="ID" required> 
                 <!-- ajax -->
                 <a id="memberID_c"></a>  
             </div>

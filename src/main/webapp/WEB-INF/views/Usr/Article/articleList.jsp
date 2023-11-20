@@ -19,7 +19,7 @@
 				</div>
 				<div>
 					<form>
-						<input type="hidden" name="type" value="${type}" /> 
+						<input type="hidden" name="memberId" value="${memberId}" /> 
 						<select data-value="${searchKeywordType }"
 							class="select select-accent select-sm w-28" name="searchKeywordType">
 							<option value="title">제목</option>
@@ -56,11 +56,11 @@
 					</tbody>
 				</table>
 			</div>
-
+			<div class="mt-2 flex justify-end">
+				<a class="btn btn-accent btn-sm" href="/Usr/Article/articleWrite">게시글 작성</a>
+			</div>
 			<c:if test="">
-				<div class="mt-2 flex justify-end">
-					<a class="btn btn-accent btn-sm" href="write">게시글 작성</a>
-				</div>
+				
 			</c:if>
 		</div>
 	</section>

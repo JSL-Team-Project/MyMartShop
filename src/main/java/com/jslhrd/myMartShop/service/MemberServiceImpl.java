@@ -19,8 +19,8 @@ public class MemberServiceImpl implements MemberService {
 	private MemberMapper mapper;
 	
 	@Override
-	public int memberIDCheck(String memberid) {
-		return mapper.memberIDCheck(memberid);
+	public int memberIDCheck(String memberId) {
+		return mapper.memberIDCheck(memberId);
 	}
 	
 	@Override
@@ -58,7 +58,7 @@ public class MemberServiceImpl implements MemberService {
 	}
 	
 	@Override
-	public int memberDelete(String memberid) {
-		return mapper.memberDelete(memberid);
+	public int memberDelete(String memberId) {
+		return mapper.memberDelete(memberId);
 	}
 }

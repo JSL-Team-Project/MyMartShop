@@ -29,8 +29,8 @@ public class AdminController {
 	
 	//회원삭제
 	@GetMapping("memberDelete")
-	public void memberDelete(@RequestParam("memberid") String memberid, Model model) {
-		int row = service.memberDelete(memberid);
+	public void memberDelete(@RequestParam("memberId") String memberId, Model model) {
+		int row = service.memberDelete(memberId);
 		model.addAttribute("row", row);
 	}
 }

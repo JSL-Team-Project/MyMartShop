@@ -75,8 +75,8 @@ public class MemberController {
 	//아이디 중복검사
 	@ResponseBody
 	@PostMapping("member_idcheck")
-	public String memberIDCheck(@RequestParam("memberid") String memberid) {
-		int row = service.memberIDCheck(memberid);
+	public String memberIDCheck(@RequestParam("memberId") String memberId) {
+		int row = service.memberIDCheck(memberId);
 		return String.valueOf(row);
 	}
 	
@@ -84,7 +84,7 @@ public class MemberController {
 	@PostMapping("memberInfo_insert")
 	public String memberInfo_insert_pro(MemberDTO dto) {
 		int row = service.memberInsert(dto);
-		return "redirect:";
+		return "/Usr/Member/memberLogin";
 	}
 
 }

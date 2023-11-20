@@ -13,7 +13,7 @@
         
             <div class="input-box">
                 <span class="icon"><i class='bx bxs-user' ></i></span>
-                <input name="memberid" type="text" placeholder="Your Id" required>   
+                <input name="memberId" type="text" placeholder="Your Id" required>   
             </div>
             <div class="input-box">
                 <span class="icon"><i class='bx bxs-lock-alt'></i></span>

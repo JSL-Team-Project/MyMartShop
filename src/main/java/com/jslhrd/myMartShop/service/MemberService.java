@@ -6,7 +6,7 @@ import com.jslhrd.myMartShop.domain.MemberDTO;
 
 public interface MemberService {
 	//아이디 중복검사
-	public int memberIDCheck(String memberid);
+	public int memberIDCheck(String memberId);
 	//회원가입 처리
 	public int memberInsert(MemberDTO dto);
 	//로그인-비밀번호 검색
@@ -18,5 +18,5 @@ public interface MemberService {
 	//전체목록
 	public List<MemberDTO> memberList();
 	//회원삭제
-	public int memberDelete(String memberid);
+	public int memberDelete(String memberId);
 }

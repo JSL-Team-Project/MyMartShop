@@ -10,9 +10,9 @@
 <link rel='stylesheet' type='text/css' href='/css/list.css'>
 <script src='main.js'></script>
 <script>
-	function deleteCheck(memberid) {
+	function deleteCheck(memberId) {
 		if (confirm("삭제하시겠습니까?") == true) {
-			location.replace("/Adm/Member/memberDelete?memberid=" + memberid);
+			location.replace("/Adm/Member/memberDelete?memberId=" + memberId);
 		} else {
 			return false;
 		}
@@ -27,7 +27,7 @@
 					<div class="user">
 						<div class="details">
 							<h1 class="name">NAME:${member.m_name}</h1>
-							<h1 class="id">ID:${member.memberid}</h1>
+							<h1 class="id">ID:${member.memberId}</h1>
 						</div>
 					</div>
 					<div class="login">
@@ -44,7 +44,7 @@
 						<p>1000P</p>
 					</div>
 					<div class="delete">
-						<a href="javascript:deleteCheck(${member.memberid})" class="btn">Delete</a>
+						<a href="javascript:deleteCheck(${member.memberId})" class="btn">Delete</a>
 					</div>
 					<div class="action">
 						<div class="icon">
