@@ -29,7 +29,9 @@
         <div class="icon">
             
         <ul>
-            <li> <i class='bx bx-buildings'></i></li>
+            <li>
+            	<a href="Usr/Goods/goodsList"><i class='bx bx-buildings'></i></a>
+            </li>
             <li><i class='bx bx-user'></i>
             <ul class="dropdown">
                 <c:if test="${member==null}">
